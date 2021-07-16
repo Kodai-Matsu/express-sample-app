@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: kodai-matsushita-pipeline-from-scratch-pipeline-run-
+spec:
+  serviceAccountName: build-bot
+  pipelineRef:
+    name: kodai-matsushita-pipeline-from-scratch-pipeline
+  workspaces:
+    - name: pipeline-shared-data
+      persistentVolumeClaim:
+        claimName: kodai-matsushita-pvc
